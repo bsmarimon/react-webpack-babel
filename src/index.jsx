@@ -5,6 +5,7 @@ import App from './app.jsx';
 
 render( <AppContainer><App/></AppContainer>, document.querySelector("#app"));
 
+// handles hot reloading 
 if (module && module.hot) {
   module.hot.accept('./app.jsx', () => {
     const App = require('./app.jsx').default;

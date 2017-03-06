@@ -1,97 +1,28 @@
-# react-webpack-babel
-Simple React Webpack Babel Starter Kit
+A example of a Google Maps component written with React. Adapted using the boilerplate code from https://github.com/alicoding/react-webpack-babel. You can run `npm run-script start` to load a development server with hotreloading.
 
-Tired of complicated starters with 200MB of dependencies which are hard to understand and modify?
 
-Try this is a simple [React](https://facebook.github.io/react/), [Webpack](http://webpack.github.io/) and [Babel](https://babeljs.io/) application with nothing else in it.
+### Getting started
+`jsx` - An extended version of JavaScript that works well with React. Let’s you assign “HTML” to variables, easily make templates, and add simple logic to your DOM. JSX expressions are enclosed in curly braces.
 
-### What's in it?
-
-* Simple src/index.jsx and src/index.css (local module css).
-* Webpack configuration for development (with hot reloading) and production (with minification).
-* CSS module loading, so you can include your css by ```import styles from './path/to.css';```.
-* Both js(x) and css hot loaded during development.
-* [Webpack Dashboard Plugin](https://github.com/FormidableLabs/webpack-dashboard) on dev server.
-
-### To run
-
-* You'll need to have [git](https://git-scm.com/) and [node](https://nodejs.org/en/) installed in your system.
-* Fork and clone the project:
-
+On this note is this kind of JSX practice safe?
 ```
-git clone https://github.com/alicoding/react-webpack-babel.git
+const name = form.input;
+const element = <h1>{name}</h1>
 ```
 
-* Then install the dependencies:
+Now let’s break down how React works on a high level. You’re going to be a writing a bunch of code - maybe you some idea how React already looks - but how does this get injected into your DOM? Well, look for a line that says ReactDOM.render(a, root). Typically, you’ll have a div with an id that serves as the “top” of the React DOM tree, and the ReactDOM you construct will be attached to this.
 
-```
-npm install
-```
+### Helpful Tips
+* React uses className, not class, for CSS stylings in the DOM
+* The location of Berkeley is `{lat: 37.8709987, lng: -122.2680837}`
+* You MUST have a singular root in any JSX expression
+* Every tag in JSX must have a closing tag or be self-closing
 
-* Run development server:
+### Components
+To be filled out soon.
 
-```
-npm start
-```
+### Props
+Props dictate the appearance of a component.
 
-* Or you can run development server with [webpack-dashboard](https://github.com/FormidableLabs/webpack-dashboard):
-
-```
-npm run dev
-```
-
-Open the web browser to `http://localhost:8888/`
-
-### To build the production package
-
-```
-npm run build
-```
-
-### Nginx Config
-
-Here is an example Nginx config:
-```
-server {
-	# ... root and other options
-
-	gzip on;
-	gzip_http_version 1.1;
-	gzip_types text/plain text/css text/xml application/javascript image/svg+xml;
-
-	location / {
-		try_files $uri $uri/ /index.html;
-	}
-
-	location ~ \.html?$ {
-		expires 1d;
-	}
-
-	location ~ \.(svg|ttf|js|css|svgz|eot|otf|woff|jpg|jpeg|gif|png|ico)$ {
-		access_log off;
-		log_not_found off;
-		expires max;
-	}
-}
-```
-
-### Eslint
-There is a .eslint.yaml config for eslint ready with React plugin.
-To use it, you need to install additional dependencies though:
-
-```
-npm install --save-dev eslint eslint-plugin-react
-```
-
-To do the actual linting, run:
-
-```
-npm run lint
-```
-
-### Notes on importing css styles
-* styles having /src/ in their absolute path are considered part of the application and exported as local css modules.
-* other styles are considered global styles used by many components and are included in the css bundle directly.
-
-### Contribute
-Please contribute to the project if you know how to make it better, including this README :)
+### State
+You can have stateless and stateful components, but in general, you want to follow the practice that data should flow down in your application. If you can manage a particular state higher up in the component hierarchy, it is better to do so and allow the child components to be stateless. Simply pass the state in as props to the child.
