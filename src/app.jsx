@@ -8,10 +8,7 @@ export default class App extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = {
-      data: data.members,
-      filter: '',
-    };
+    // We're gonna need some state!
   }
 
   render() {
