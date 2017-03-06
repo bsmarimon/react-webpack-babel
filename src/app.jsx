@@ -17,9 +17,9 @@ export default class App extends React.Component {
   render() {
     const members = this.state.members;
 
-    // http://stackoverflow.com/questions/36683770/react-how-to-get-the-value-of-an-input-field
-    const handleSearch = (e) => {
-      this.setState({ filter: e.target.value });
+    /** Fill in this function body and modify the input below to make it stateful **/
+    const handleSearch = () => {
+
     }
 
     return (
@@ -30,7 +30,6 @@ export default class App extends React.Component {
             placeholder="Search"
             className="search-bar"
             onChange={handleSearch}
-            value={this.state.filter}
           />
         </div>
         <Map

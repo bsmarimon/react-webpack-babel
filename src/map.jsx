@@ -9,17 +9,14 @@ export default class Map extends React.Component {
     }
   }
 
+  /** When should this component update? When what changes? **/
   shouldComponentUpdate(nextProps, nextState) {
-    return nextProps.filter !== this.props.filter;
+
   }
 
+  /** Okay, the component updated! What should we do to the markers now? **/
   componentDidUpdate(prevProps, prevState) {
-    const filter = this.props.filter.toLowerCase();
-    const markers = this.state.markers;
-    for (let obj of markers) {
-      const valid = obj.name.toLowerCase().includes(filter);
-      obj.marker.setVisible(valid);
-    }
+
   }
 
   componentDidMount() {
@@ -34,17 +31,15 @@ export default class Map extends React.Component {
       });
     };
 
-    // Helper function to async load a script
-    // http://stackoverflow.com/questions/12820953/asynchronous-script-loading-callback
+    /**
+    Helper function to async load a script
+
+    @params
+    src, the source of the external scripts
+    callback, the function that should executed after the script loads
+    **/
     function asyncLoad(src, callback) {
-      var d = document, t = 'script',
-          o = d.createElement(t),
-          s = d.getElementsByTagName(t)[0];
-      o.src = src;
-      if (callback) {
-        o.addEventListener('load', function (e) { callback(null, e); }, false);
-      }
-      s.parentNode.insertBefore(o, s);
+
     }
 
     const loadMap = () => {
