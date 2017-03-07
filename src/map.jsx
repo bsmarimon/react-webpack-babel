@@ -11,7 +11,7 @@ export default class Map extends React.Component {
 
   /** When should this component update? When what changes? **/
   shouldComponentUpdate(nextProps, nextState) {
-
+  
   }
 
   /** Okay, the component updated! What should we do to the markers now? **/
